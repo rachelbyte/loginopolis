@@ -41,7 +41,7 @@ app.post("/login", async (req, res, next) => {
 
   try {
     const {username, password} = req.body;
-    const [foundUser] = await User.findAll({where: {username}})
+    const [foundUser] = await User.findOne({where: {username}})
     // hash compare
     if (!foundUser) {
       res.send('User not found')
